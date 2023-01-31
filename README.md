@@ -6,9 +6,9 @@ Results from the paper are in the `figures/clean` and `tables/clean` folders. Co
 ## How to replicate results
 1. Download this repository.
 2. Download data from [Dropbox](https://www.dropbox.com/sh/3zz7ri3uzc5uf6t/AAAcwLegWlEkA31EkDXuEPZna?dl=0). Place files downloaded from Dropbox in the same folder as the downloaded GitHub repository.
-3. Change settings in `scripts/setup/00_03_load_settings.R`:
+3. Change settings in `scripts/setup/03_load_settings.R`:
     1. Set `path_dropbox` to the location of the data downloaded from Dropbox.
     2. Set `path_github` to the location of this downloaded repository's root.
-4. Install packages by running `scripts/setup/00_00_install_packages.R`.
+4. Install packages listed in `scripts/setup/01_load_packages.R`.
 5. Set working directory to this downloaded repository's root.
 6. Run scripts in `scripts/main`.
