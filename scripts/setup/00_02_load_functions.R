@@ -133,7 +133,7 @@ classify_trends <- function(df){
                                     early_decline & b2totalMb1total_pval >= 0.05 ~ "non-sig change",
                                     !early_decline ~ "no sig early decline",
                                     T ~ "something wrong"), 
-           smoke_group = case_when(!smoke_influenced ~ "no smoke influence detected", 
+           smoke_group = case_when(!smoke_influenced ~ "no smoke-influence detected", 
                                    # isolate smoke-casued reversals first 
                                    early_decline & smoke_influenced & 
                                      b2total_est > 0 & b2total_pval < 0.05 & 

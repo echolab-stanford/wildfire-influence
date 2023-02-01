@@ -1,6 +1,6 @@
-source("scripts/setup/01_load_packages.R")
-source("scripts/setup/02_load_functions.R")
-source("scripts/setup/03_load_settings.R")
+source("scripts/setup/00_01_load_packages.R")
+source("scripts/setup/00_02_load_functions.R")
+source("scripts/setup/00_03_load_settings.R")
 
 # set up state grid
 my_grid <- us_state_grid3

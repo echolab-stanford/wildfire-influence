@@ -1,6 +1,6 @@
-source("scripts/setup/01_load_packages.R")
-source("scripts/setup/02_load_functions.R")
-source("scripts/setup/03_load_settings.R")
+source("scripts/setup/00_01_load_packages.R")
+source("scripts/setup/00_02_load_functions.R")
+source("scripts/setup/00_03_load_settings.R")
 
 epa_regions <- read.csv(file.path(path_dropbox, "data", "us_climate_regions.csv"))
 nonContig_stateFIPS <- c("02","60","66","15","72","78","69")
@@ -23,7 +23,7 @@ station_year_avg <- readRDS(file.path(path_dropbox, "data", "epa_station_year_fi
 # break years from brandon ---- 
 breaks <- rbind(read.csv(file.path(path_dropbox, "output", "year_subsample_estimates.csv")) %>%  
                   mutate(PM_measure = "mean"), 
-                read.csv(file.path(path_dropbox, "data", "epm_year_subsample_estimates.csv")) %>% 
+                read.csv(file.path(path_dropbox, "output", "epm_year_subsample_estimates.csv")) %>% 
                   mutate(PM_measure = "extremePct")) %>%
   select(-X, -climate_regions) %>% 
   left_join(state_dict %>% 
