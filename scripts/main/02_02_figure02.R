@@ -130,11 +130,12 @@ all_fits %>%
   ungroup %>% 
   {ggplot(data = ., 
           aes(y = x, id = id, split = y, value = count)) +
-      geom_parallel_sets(fill = "grey70",
-                         #aes(fill = change_group), 
-                         alpha = 0.3, axis.width = 0.1) +
       geom_parallel_sets_axes(aes(fill = y), 
                               axis.width = 0.1) +
+      geom_parallel_sets(#fill = "grey70",
+                         #aes(fill = change_group), 
+                         aes(fill = smoke_group), 
+                         alpha = 0.3, axis.width = 0.1) +
       geom_text(data = mutate(., lab_position_y = ifelse(y == change_group, 2, 1)) %>% 
                   select(y, group_count, lab_position_y) %>% 
                   unique %>%
