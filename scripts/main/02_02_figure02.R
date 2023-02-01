@@ -206,3 +206,24 @@ all_fits %>%
       theme(legend.position = "none")} %>% 
   ggsave(file.path(path_github, "figures", "raw", "figure02a_classification_sankey.pdf"), 
          ., width = 6, height = 2.5)
+
+# fig 2b ----
+#dt <- read_rds('data/state_pooled_fit_coefs_classifications.rds')
+dt <- read_rds(file.path(path_dropbox, "output", "state_allFits_coefs_classifications.rds"))
+
+dt <- dt %>%   mutate(b2smoke = b2total_est-b2nonsmoke_est, chg1=b1total_est*length(2001:2016),chg2=b2smoke*length(2017:2022), ratio=-chg2/chg1*100) %>%
+  mutate(ratiot=ifelse(ratio>100,100,ratio))
+df <- dt %>%  filter(spec=="main" & smoke_influenced==TRUE & state_abbr != "US" & PM_measure=="mean") 
+
+pdf(file.path(path_github, "figures", "raw", "figure02b_PMchange.pdf"),width=5,height=3)
+par(mfrow=c(2,1),mar=c(3,4,1,0))
+hist(df$chg1,xlab="",las=1,xlim=c(-10,3),ylab="",main="",ylim = c(0,8),breaks=seq(-10,1,0.5),col="lightblue")
+abline(v=median(df$chg1),col="lightblue",lty=2)
+
+#hist(-df$chg2,xlim=xlim,las=1,ylab="",main="")
+hist(df$chg2,add=T,main="",col="orange")
+abline(v=median(df$chg2),col="orange",lty=2,lwd=2)
+
+hist(df$ratiot,ylab="",xlab="",main="",las=1,breaks = seq(0,100,5))
+abline(v=median(df$ratio),col="red",lty=2,lwd=2)
+dev.off()
