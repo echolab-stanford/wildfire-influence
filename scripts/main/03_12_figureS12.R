@@ -57,6 +57,48 @@ state_year <- station_year %>%
                   state_name = "Contiguous US", 
                   climate_regions = NA))}
 
+# extremes ----
+extremePct_cdf <- station_year %>% 
+  filter(totalPM_n > 50) %>% 
+  group_by(id) %>% 
+  mutate(n_year = n()) %>% 
+  ungroup %>% 
+  filter(n_year >= 15) %>% 
+  mutate(pct_exceed = ifelse(totalPM_extremePct > 0, 
+                             (totalPM_extremePct - nonsmokePM_extremePct)/totalPM_extremePct, 
+                             0)) %>% 
+  {purrr::pmap_dfr(data.frame(start = c(2006, 2011, 2020, 2006:2022),
+                              end = c(2010, 2022, 2022, 2006:2022)),
+                   function(start, end){
+                     filter(., year >= start & year <= end) %>%
+                       group_by(year, state_abbr) %>% 
+                       summarise(across(ends_with("exceed"), 
+                                        mean),
+                                 .groups = "drop") %>% 
+                       group_by(state_abbr) %>% 
+                       summarise(across(ends_with("exceed"), 
+                                        mean),
+                                 .groups = "drop") %>% 
+                       arrange(desc(pct_exceed)) %>% 
+                       mutate(n_gte = 1:n()) %>% 
+                       group_by(pct_exceed) %>%
+                       summarise(n_gte = max(n_gte), 
+                                 states = list(state_abbr)) %>%
+                       # add row to get down to zero 
+                       rbind(., 
+                             filter(., pct_exceed == max(pct_exceed)) %>% 
+                               mutate(n_gte = 0)) %>%
+                       mutate(start = start, 
+                              end = end) %>% 
+                       return
+                   })} %>% 
+  mutate(period = ifelse(start == end, 
+                         start, 
+                         paste0(start, "-", end)),
+         group = ifelse(start == end, 
+                        "annual", 
+                        period)) 
+
 # read in fits ----
 all_fits <- readRDS(file.path(path_dropbox, "output", 
                               "state_allFits_coefs_classifications.rds")) %>% 
