@@ -1,0 +1,36 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand\familydefault{\sfdefault}
+
+\begin{document}
+\thispagestyle{empty}
+
+
+
+\begin{table}[]
+    \centering
+    \hspace*{-2cm}
+    % \caption{\textbf{Definition of trend groupings}. We subdivide states into ``stagnation" states and "reversal" states based on comparison of trends in total \pmt between early and recent periods, and then subdivide those based on whether they were smoke-influenced. Coefficients refer to period-specific estimated slopes on \pmt: $\beta_1$ and $\beta_2$ are first- and second-period slopes on total \pmt, $\beta^\prime_1$ and $\beta^\prime_2$ are corresponding period slopes for non-smoke \pmt.  Strong inequalities ($>$ or $<$) have to be statistically significant ($p<0.05$) for condition to be met. }
+    \begin{tabular}{l|c|c|c|c|p{4cm}}
+         \textbf{Group} &  \multicolumn{4}{c}{\textbf{}{Conditions on slopes} } & \textbf{}{In words} \\
+         & $\beta_1$ & $\beta_2$ & $\beta^\prime_1$ & $\beta^\prime_2$ & \\ 
+         \hline 
+        \rule{0pt}{2ex} \underline{\textbf{Trends in total PM$_{2.5}$}} &&&&& \\
+       \rule{0pt}{2ex} Stagnation   & $<0$ & $\leq0$ \& $> \beta_1$ &  & & \emph{Total PM$_{2.5}$ declined in the first period but declined more slowly or was flat in second period}. \\ [5pt]
+       \rule{0pt}{2ex} Reversal   & $<0$ & $>0$ && & \emph{Total PM$_{2.5}$ declined in the first period but increased in the second period.} \\
+        \rule{0pt}{4ex} \underline{\textbf{Influence of smoke PM$_{2.5}$}} &&&&& \\
+       \rule{0pt}{2ex} Smoke-influenced Stagnation  & $<0$ & $\leq0$ \& $> \beta_1$ &  & $< \beta_2$ & \emph{A stagnation where recent period PM$_{2.5}$ would have declined more quickly without smoke.} \\
+       \rule{0pt}{2ex} Smoke-caused Reversal   & $<0$ & $>0$ &  & $<0$ & \emph{A reversal where second-period total PM$_{2.5}$ would have declined absent smoke.} \\
+       \rule{0pt}{2ex} Smoke-influenced Reversal  & $<0$ & $>0$ &  & $<\beta_2$ & \emph{A reversal where second period total PM$_{2.5}$ would not have declined absent smoke, but increases would have been at a lower rate.}\\
+       \rule{0pt}{2ex} Smoke-influenced, no early decline  & $\geq 0$ &  &  & $<\beta_2 $ & \emph{Smoke influenced total PM$_{2.5}$ trends in the second period, but there was no detectable decline in total PM$_{2.5}$ during the first period.} \\
+       \rule{0pt}{2ex} Smoke influence not detected  &  &  &  & $\approx \beta_2$ & \emph{We did not detect an influence of smoke on total PM$_{2.5}$ trends.} \\
+       \hline
+    \end{tabular}
+    \label{tab:groupings}
+\end{table}
+
+
+\end{document}

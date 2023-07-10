@@ -1,0 +1,197 @@
+abstract, % of states where smoke influence is slowing/reversing progress ----------
+"smoke_influenced" "pct"
+TRUE 0.729166666666667
+FALSE 0.270833333333333
+
+
+
+abstract, % of gains undone ----------
+24.6160100318302
+
+
+
+abstract, mean years undone by smoke over all smoke-influenced states ----------
+-4.33652857792043
+
+
+
+intro, median break year for annual average PM, main specification ----------
+2015.61979396
+
+
+
+intro, median break year for extreme PM days, main specification ----------
+2011.99999735
+
+
+
+intro, extreme days in eastern states 2000-2002 ----------
+9.72738
+
+
+
+results, counts of states with PM trend changes ----------
+"change_group" "n"
+"stagnation" 30
+"reversal" 11
+"no sig. early decline" 3
+"non-sig. change" 3
+"acceleration" 1
+
+
+
+results, pct and number of smoke-influenced states ----------
+"smoke_influenced" "pct" "n"
+TRUE 0.729166666666667 35
+FALSE 0.270833333333333 13
+
+
+
+results, ug/m3 PM added from smoke in smoke-influenced states ----------
+"smoke_group" "name" "sample_stat" "panel" "lower" "mid" "upper"
+"all_smoke-influenced" "changeLateSmoke" "mid" "change in PM2.5" 0.52 0.6 0.67
+"all_smoke-influenced" "changeLateSmoke" "mean" "change in PM2.5" 0.64 0.69 0.74
+
+
+
+results, pct progress undone in all smoke-influenced states ----------
+"smoke_group" "name" "sample_stat" "panel" "lower" "mid" "upper"
+"all_smoke-influenced" "pctUndone" "mid" "pct of progress undone by smoke" 8.1889215754606 10.3954801620194 13.5497860250198
+"all_smoke-influenced" "pctUndone" "mean" "pct of progress undone by smoke" 19.6140894661348 24.6160100318302 29.3637138926913
+
+
+
+results, recap state counts by smoke-influenced group ----------
+"smoke_group" "n"
+"smoke-influenced stagnation" 22
+"no smoke influence detected" 13
+"smoke-caused reversal" 3
+"smoke-influenced reversal" 5
+"smoke-influenced,
+no early decline" 3
+"smoke-influenced,
+no sig. trend change" 2
+
+
+
+results, PM added and pct progress undone by smoke group ----------
+"smoke_group" "name" "sample_stat" "panel" "lower" "mid" "upper"
+"smoke-influenced stagnation" "changeLateSmoke" "mid" "change in PM2.5" 0.39 0.47 0.56
+"smoke-influenced stagnation" "pctUndone" "mid" "pct of progress undone by smoke" 6 7 8
+"smoke-influenced stagnation" "yearsUndone" "mid" "pct of progress undone by smoke" -1.3 -1.1 -0.9
+"smoke_reversals" "changeLateSmoke" "mid" "change in PM2.5" 0.85 0.97 1.08
+"smoke_reversals" "pctUndone" "mid" "pct of progress undone by smoke" 36 46 58
+"smoke_reversals" "yearsUndone" "mid" "pct of progress undone by smoke" -9 -7.1 -5.6
+
+
+
+results, smoke-influenced group sensitivity ----------
+"sample_name" "smoke_influenced" "n"
+"discontinuous" TRUE 39
+"drop2021" TRUE 18
+"drop2021" FALSE 30
+"discontinuous" FALSE 9
+
+
+
+results, extreme days smoke influenced counts ----------
+"smoke_influenced" "n"
+FALSE 30
+TRUE 18
+
+
+
+results, extreme days sensitivity ----------
+"sample_factor" "smoke_influenced" "n"
+"100 obs, 15 years" TRUE 21
+"Drop 2020" TRUE 22
+"Drop 2021" TRUE 12
+"Drop 2022" TRUE 20
+"50 obs, 10 years" TRUE 21
+"Main (50 obs, 15 years)" TRUE 19
+"50 obs, 5 years" TRUE 21
+"Positive smoke
+PM2.5 anomalies" TRUE 19
+
+
+
+results, pct of states with >25% exceedences from smoke by time period  ----------
+"period" "n" "states1" "states2" "states3" "states4" "states5" "states6" "states7" "states8" "states9" "states10" "states11" "states12" "states13" "states14" "states15" "states16" "states17" "states18" "states19" "states20" "states21"
+"2011-2022" 7 "NV" "SD" "ND" "WA" "OR" "ID" "MT" NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+"2020-2022" 21 "RI" "PA" "NE" "NM" "VT" "NH" "MN" "OK" "CT" "KS" "ND" "CO" "WY" "CA" "NV" "SD" "UT" "WA" "MT" "OR" "ID"
+
+
+
+results, states with >75% exceedences from smoke in 2020-2022 ----------
+"n" "states1" "states2" "states3" "states4"
+4 "WA" "MT" "OR" "ID"
+
+
+
+results, total PM trend in western states ----------
+0.1166428
+
+
+
+methods, number of stations ----------
+2498
+
+
+
+methods, pct of total days with negative smoke anomalies ----------
+2.36%
+
+
+
+methods, avg increase in PM2.5 when smoke plume is overhead ----------
+"Estimate" "Std. Error" "t value" "Pr(>|t|)"
+"smoke_day" 4.67004865601023 0.111245682111561 41.9795947794804 7.73319103326423e-280
+
+
+
+methods, change in smoke-influenced classifications in other specifications ----------
+"sample_factor" "type" "no smoke influence detected" "smoke-influenced"
+"Drop 2021" "mean" 30 18
+"Drop 2022" "mean" 14 34
+"100 obs, 15 years" "mean" 14 34
+"50 obs, 10 years" "mean" 13 35
+"Main (50 obs, 15 years)" "mean" 13 35
+"50 obs, 5 years" "mean" 12 36
+"Regional breaks" "mean" 11 37
+"Discontinuous" "mean" 9 39
+"Positive smoke
+PM2.5 anomalies" "mean" 9 39
+"Drop 2020" "mean" 8 40
+"Drop 2021" "extreme" 37 11
+"Main (50 obs, 15 years)" "extreme" 30 18
+"Positive smoke
+PM2.5 anomalies" "extreme" 30 18
+"Drop 2022" "extreme" 29 19
+"100 obs, 15 years" "extreme" 28 20
+"50 obs, 10 years" "extreme" 28 20
+"50 obs, 5 years" "extreme" 28 20
+"Drop 2020" "extreme" 27 21
+
+
+methods, beta in regression of log smoke pm on vpd ----------
+"Estimate" "Std. Error" "t value" "Pr(>|t|)"
+"(Intercept)" -14.8143841564436 3.70081612644201 -4.00300464824396 0.00115225382021536
+"vpd" 14.6236087825776 3.85925310885474 3.78923288265932 0.00178203247883236
+"Estimate" "Std. Error" "t value" "Pr(>|t|)"
+"(Intercept)" -241.395979377021 55.8853447069489 -4.319486273957 0.000706417712925984
+"vpd" 14.2801651952244 2.7089318849701 5.27151135635957 0.000118129217824273
+"year" 0.112666577734643 0.0277587032400585 4.05878389780305 0.00117291952608521
+
+
+methods, predictions for future annual avg smoke pm under SSPs ----------
+"scenario" "predsmear"
+"1" "ssp126" 1.57459934417491
+"2" "ssp245" 3.17357733019383
+"3" "ssp370" 3.81246818179232
+
+
+methods, predicted annual avg smoke pm from average VPD 2018-2022, and difference ----------
+"x"
+"4" 0.741205919932255
+"x"
+"3" 3.07126226186007
