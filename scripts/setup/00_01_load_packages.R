@@ -1,6 +1,6 @@
 library(lubridate)
 
-library(sf)
+library(sf) # Linking to GEOS 3.11.2, GDAL 3.6.4, PROJ 9.2.0
 library(tigris)
 
 library(magrittr)
