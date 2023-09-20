@@ -1,5 +1,5 @@
 # wildfire-influence
-Repo supporting Burke et al 2023 "Wildfire influence on recent US pollution trends".
+Repo supporting [Burke et al 2023 "The contribution of wildfire to PM<sub>2.5</sub> trends in the USA"](https://doi.org/10.1038/s41586-023-06522-6).
 
 Results from the paper are in the `figures/clean` and `tables/clean` folders. Code to replicate results are in the `scripts` folder. Data are in [Dropbox](https://www.dropbox.com/sh/3zz7ri3uzc5uf6t/AAAcwLegWlEkA31EkDXuEPZna?dl=0).
 
